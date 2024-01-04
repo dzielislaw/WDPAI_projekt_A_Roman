@@ -1,0 +1,195 @@
+html{
+    width: auto;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg,  rgba(0,137,167,0.56) 57%, rgba(13,73,86,0.76) 99%);
+}
+
+.flex-column-center-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#banner{
+    width: 100%;
+    height: 19%;
+    margin: 0;
+    clear: both;
+}
+
+#banner img{
+    display: none;
+}
+
+#left{
+    width: 50vw;
+    height: 67%;
+    margin: 0;
+    padding: 0 1.3%;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#left h1{
+    display: none;
+}
+
+#logo img{
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+#right{
+    width: 50vw;
+    height: 67%;
+    margin: 0;
+    padding: 0 0.7%;
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+}
+
+#footer{
+    width: 100%;
+    height: 6%;
+    clear: both;
+    margin: 0;
+    padding: 0 0.6%;
+    text-align: center;
+    color: whitesmoke;
+    font-size: x-large;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 5em;
+    vertical-align: center;
+}
+
+#logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4em;
+}
+
+.logoElement{
+    /* box-shadow: 0 5px 4px rgba(0, 0, 0, 0.25); */
+    position: absolute;
+}
+
+.userButton{
+    width: 80%;
+    height: 21.53%;
+    margin: 1%;
+    padding: 3% 1%;
+    font-size: 2em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset;
+    border-radius: 1.4em;
+    clear: both;
+}
+
+
+#loginButton{
+    width: 82%;
+    height: 21.53%;
+    margin: 1%;
+    padding: 3% 1%;
+    font-size: 2em;
+    text-align: center;
+    background: rgba(13.29, 53.03, 81.81, 0.86);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset;
+    border-radius: 1.4em;
+    color: whitesmoke;
+    clear: both;
+}
+
+@media screen and (max-width: 950px) {
+    #banner img{
+        max-width: 100%;
+        max-height: 100%;
+        display: flex;
+        position: relative;
+        margin: 2% auto auto;
+    }
+    #banner h1{
+        display: none;
+    }
+    #left{
+        width: 100%;
+        height: auto;
+        clear: both;
+        margin: auto;
+    }
+    #left img{
+        display: none;
+    }
+    #left h1{
+        width: 100%;
+        text-align: center;
+        display: flex;
+        margin: auto;
+    }
+    #right{
+        width: 100%;
+        height: 65%;
+        margin: auto;
+    }
+    #logo{
+        display: none;
+    }
+    .userButton{
+        height: 30%;
+    }
+}
+
+button{
+    background-color: whitesmoke;
+    transition: background-color 560ms ease-in-out;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: darkorange;
+}
+
+
+@media (max-device-width: 450px) {
+    #container {
+        flex-wrap: unset;
+        flex-direction: column;
+    }
+
+    #left, #right {
+        width: 100vw;
+    }
+}

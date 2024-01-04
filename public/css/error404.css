@@ -1,0 +1,57 @@
+html{
+    width: auto;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg,  rgba(0,137,167,0.56) 57%, rgba(13,73,86,0.76) 99%);
+    display: flex;
+    flex-direction: column;
+}
+
+#banner{
+    width: auto;
+    height: 18%;
+    margin: auto;
+    display: flex;
+}
+
+#banner h1{
+    color: whitesmoke;
+    font-size: xx-large;
+}
+
+#main_content{
+    width: auto;
+    height: 70%;
+    margin: auto;
+    display: flex;
+}
+
+#main_content img{
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#footer{
+    width: auto;
+    height: 7%;
+    display: flex;
+    margin: auto;
+}
+
+#footer p{
+    font-size: x-large;
+    text-align: center;
+    color: whitesmoke;
+    vertical-align: top;
+    margin: auto;
+}
