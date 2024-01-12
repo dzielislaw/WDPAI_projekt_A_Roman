@@ -41,7 +41,7 @@
                             }
                         ?>
                     </div>
-                    <input class="userButton" type="text" name="email" placeholder="email"> <br>
+                    <input class="userButton" type="email" name="email" placeholder="email"> <br>
                     <input class="userButton" type="password" name="password" placeholder="hasło"> <br>
                     <input id="loginButton" type="submit" value="Zaloguj">
                 </form>

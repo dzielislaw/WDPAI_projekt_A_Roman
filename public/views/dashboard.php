@@ -13,8 +13,15 @@
 <body>
     <?php
         if(!isset($_SESSION['auth']) || !$_SESSION['auth']){
-            $url = "http://$_SERVER[HTTP_HOST]";
+            $url = "https://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/logout");
+        }
+    require_once __DIR__.'/../../src/Repository/EquipmentRepository.php';
+        $eq = new EquipmentRepository();
+        $equipment = $eq->getEquipment(1);
+        echo $equipment->getName()."\r\n";
+        foreach ($equipment->getCategory() as $category){
+            echo $category.' ';
         }
     ?>
     <div id="container">
@@ -41,26 +48,17 @@
                     <img src="public/img/magnyfing_glass.png">
                 </div>
                 <div id="searchOpt">
-                    <form id="search" method="get" action="searchTool">
+                    <form id="search" method="GET" action="equipments">
                         <label>
-                            <select id="toolSelect" required>
-                                <option disabled selected hidden="hidden">Co będzie Ci potrzebne?</option>
-                                <optgroup label="elektronarzędzia">
-                                    <option>Wiertarki</option>
-                                    <option>Szlifierki</option>
-                                    <option>Wiertnie</option>
-                                    <option>Wkrętarki</option>
-                                </optgroup>
-                                <optgroup label="ogród">
-                                    <option>Myjki ciśnieniowe</option>
-                                    <option>Wiertnie</option>
-                                    <option>Piły łańcuchowe</option>
-                                </optgroup>
-                                <optgroup label="sprzęt ciężki">
-                                    <option>Betoniarki</option>
-                                    <option>Cyrkularki</option>
-                                    <option>Agregaty prądotwórcze</option>
-                                </optgroup>
+                            <select name="toolSelect" id="toolSelect" required>
+                                <?php
+                                require_once __DIR__.'/../../src/Repository/CategoriesRepository.php';
+                                $repo = new CategoriesRepository();
+                                $categories = $repo->getCategories();
+                                foreach ($categories as $category){
+                                    echo '<option value="'.$category->getId().'">'.$category->getName().'</option>';
+                                }
+                                ?>
                             </select>
                         </label>
                         <input type="submit" value = "Szukaj">

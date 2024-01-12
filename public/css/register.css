@@ -68,7 +68,7 @@ body{
     flex-direction: column;
 }
 
-.userInput{
+input {
     width:80%;
     height: 12%;
     margin: 1% auto;
@@ -98,6 +98,8 @@ label{
 
 #agreementCheckbox{
     margin-left: 0.5em;
+    width: auto;
+    height: auto;
 }
 
 #footer{
@@ -113,4 +115,8 @@ label{
     color: whitesmoke;
     vertical-align: top;
     margin: auto;
+}
+
+.no-valid{
+    border: 0.2em solid rgb(224, 0, 0);
 }

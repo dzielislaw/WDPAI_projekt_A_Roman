@@ -7,7 +7,7 @@
         <link rel="icon" type="image/x-icon" href="public/img/favicon.ico">
         <title>Sprzęt-apka</title>
         <link rel="stylesheet" href = "public/css/register.css" type="text/css">
-
+        <script type="text/javascript" src="./public/js/script.js" defer></script>
     </head>
     <body>
         <div id="container_pc">
@@ -19,11 +19,12 @@
             </div>
             <div id = "main_content">
                 <form action="register" method="POST">
-                    <input type="text" class="userInput" name="name" id="name" placeholder="imię">
-                    <input type="text" class="userInput" name="surname" id="surname" placeholder="nazwisko">
-                    <input type="text" class="userInput" name="pesel" id="pesel" placeholder="pesel">
-                    <input type="text" class="userInput" name="email" id="email" placeholder="email">
-                    <input type="password" class="userInput" name="password" id="password" placeholder="hasło">
+                    <input type="text" name="name" id="name" placeholder="imię">
+                    <input type="text" name="surname" id="surname" placeholder="nazwisko">
+                    <input type="text" name="pesel" id="pesel" placeholder="pesel">
+                    <input type="text" name="email" id="email" placeholder="email">
+                    <input type="password" name="password" id="password" placeholder="hasło">
+                    <input type="password" name="confirmedPassword" id="password" placeholder="powtórz hasło">
                     <label>
                         <input type="checkbox" id="agreementCheckbox" name="agreementCheckbox" value="Akceptuję postanowienia regulaminu" required>
                         Akceptuję postanowienia regulaminu

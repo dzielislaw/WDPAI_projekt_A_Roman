@@ -2,22 +2,22 @@
 
 namespace Models;
 
-class Commodity
+class Equipment
 {
     private int $id;
     private String $name;
     private String $producer_name;
     private String $price;
-    private string $category;
+    private array $categories;
     private string $additional_info;
 
-    public function __construct(int $id, string $name, string $producer_name, string $price, string $category, string $additional_info)
+    public function __construct(int $id, string $name, string $producer_name, string $price, array $categories, string $additional_info)
     {
         $this->id = $id;
         $this->name = $name;
         $this->producer_name = $producer_name;
         $this->price = $price;
-        $this->category = $category;
+        $this->categories = $categories;
         $this->additional_info = $additional_info;
     }
 
@@ -52,14 +52,14 @@ class Commodity
         $this->price = $price;
     }
 
-    public function getCategory(): string
+    public function getCategory(): array
     {
-        return $this->category;
+        return $this->categories;
     }
 
-    public function setCategory(string $category): void
+    public function setCategory(array $categories): void
     {
-        $this->category = $category;
+        $this->categories = $categories;
     }
 
     public function getAdditionalInfo(): string

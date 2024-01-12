@@ -30,7 +30,7 @@
             else{
                 if(!array_key_exists($action, self::$get_routes)){
                     //die("Wrong url!");
-                    $url = "http://$_SERVER[HTTP_HOST]";
+                    $url = "https://$_SERVER[HTTP_HOST]";
                     header("Location: {$url}/error404");
                 }
                 $controller = self::$get_routes[$action];

@@ -3,7 +3,7 @@
 use Models\User;
 
 require_once 'AppController.php';
-require_once __DIR__ .'/../models/User.php';
+require_once __DIR__ .'/../Models/User.php';
 require_once __DIR__.'/../Repository/UserRepository.php';
 class SecurityController extends AppController
 {
@@ -33,7 +33,8 @@ class SecurityController extends AppController
         header("Location: {$url}/dashboard");
     }
 
-    public function logout(){
+    public function logout(): void
+    {
        // session_destroy();
         unset($_SESSION['auth']);
         unset($_POST['email']);
@@ -43,14 +44,16 @@ class SecurityController extends AppController
         header("Location: {$url}/index");
     }
 
-    public function check(){
+    public function check(): void
+    {
         if(!isset($_SESSION['auth']) || !$_SESSION['auth']){
             $url = "https://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/login");
         }
     }
 
-    public function register(){
+    public function register(): void
+    {
         if(isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['pesel']) && isset($_POST['email'])
             && $_POST['password'] && isset($_POST['agreementCheckbox']) && $_POST['agreementCheckbox']){
             $database = new Database();

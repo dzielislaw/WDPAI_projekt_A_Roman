@@ -1,17 +1,16 @@
 <?php
 
-namespace Repository;
+#namespace Repository;
 
 use Models\User;
-use PDO;
-use Repository;
+#use PDO;
+#use Repository;
 
 require_once 'Repository.php';
 
 class UserRepository extends Repository
 {
     public function getUser($email): ?User{
-        #echo $email;
         $stmt = $this->database->connect()->prepare('
             SELECT imie AS name, nazwisko AS surname, email, hash FROM public.klienci WHERE email = :email
         ;');

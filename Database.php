@@ -8,6 +8,7 @@ class Database
     private $host;
     private $database;
     private $port = PORT;
+    private static Database $instance;
 
     public function __construct()
     {
@@ -20,18 +21,21 @@ class Database
 
     public function connect()
     {
-        try{
-            $connection = new PDO(
-                "pgsql:host=$this->host;port=$this->port;dbname=$this->database;",
-                $this->username,
-                $this->password,
-                ["sslmode => prefer"]
-            );
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $connection;
-        }catch (PDOException $e){
-            die($e->getMessage());
+        if(!isset($instance)) {
+            try {
+                $connection = new PDO(
+                    "pgsql:host=$this->host;port=$this->port;dbname=$this->database;",
+                    $this->username,
+                    $this->password,
+                    ["sslmode => prefer"]
+                );
+                $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                return $connection;
+            } catch (PDOException $e) {
+                die($e->getMessage());
+            }
         }
+        return $instance;
     }
 }
 

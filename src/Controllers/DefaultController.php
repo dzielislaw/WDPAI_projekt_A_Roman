@@ -2,13 +2,20 @@
 
     require_once 'AppController.php';
     class DefaultController extends AppController{
-        public function index(){
+        public function index(): void
+        {
             //TODO diaply index.html
             $this->render('login');
         }
-        public function dashboard(){
+        public function dashboard(): void
+        {
             //TODO display projects.html
             $this->render('dashboard');
+        }
+
+        public function addEquipment(): void
+        {
+            $this->render('addEquipment');
         }
 
         public function info(){
@@ -22,6 +29,10 @@
         public function error404()
         {
             $this->render('error404');
+        }
+
+        public function equipments(){
+            $this->render('equipments');
         }
 
         public function searchTool()
