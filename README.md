@@ -3,9 +3,9 @@ Aplikacja dla wypożyczalni sprzętu ogrodowego i budowlanego.<br> Posiada dwa s
 
 ## Spis treści
 
-- [Funkcjonalności](#funkcjonalności)
-- [Schemat ERD bazy danych](#schemat ERD)
-- [Uzyte technologie](#użyte technologie)
+- [Funkcjonalności](#Funkcjonalności)
+- [Schemat ERD bazy danych](#ERD)
+- [Uzyte technologie](#Technologie)
 
 ## Funkcjonalności
 
@@ -25,9 +25,10 @@ Pracownicy odnotowują w aplikacji wydanie zamowionego sprzętu oraz jego zwrot.
 <b>Dodawanie zasobów</b> <br>
 Pracownicy mogą dodawać nowe sprzęty do bazy.
 
-## schemat ERD 
+## ERD 
+![Diagram](/diagram ERD.png)
 
-## użyte technologie
+## Technologie
 Frontend: HTML5, CSS3, JavaScript <br>
 Backend: PHP 8 <br>
 Baza danych: PostgreeSQL <br>
