@@ -26,7 +26,7 @@ Pracownicy odnotowują w aplikacji wydanie zamowionego sprzętu oraz jego zwrot.
 Pracownicy mogą dodawać nowe sprzęty do bazy.
 
 ## ERD 
-![Diagram](/diagram ERD.png)
+![Diagram ERD bazy danych](https://github.com/dzielislaw/WDPAI_projekt_A_Roman/blob/main/Diagram%20ERD.png?raw=true)
 
 ## Technologie
 Frontend: HTML5, CSS3, JavaScript <br>
