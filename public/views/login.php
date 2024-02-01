@@ -43,6 +43,7 @@
                     </div>
                     <input class="userButton" type="email" name="email" placeholder="email"> <br>
                     <input class="userButton" type="password" name="password" placeholder="hasło"> <br>
+                    <div><input type="checkbox" name="isWorker"> Zaloguj na konto pracownicze</div>
                     <input id="loginButton" type="submit" value="Zaloguj">
                 </form>
                 <a href="./register"><button id="registerButton">Nie masz konta? Zarejestruj się</button></a>

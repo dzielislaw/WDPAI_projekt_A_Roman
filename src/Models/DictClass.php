@@ -1,7 +1,7 @@
 <?php
 
 namespace Models;
-
+require_once __DIR__.'/DictClass.php';
 abstract class DictClass
 {
     private int $id;

@@ -8,22 +8,10 @@
     <title>Sprzęt-apka</title>
     <link rel="stylesheet" href = "public/css/main.css" type="text/css">
     <link rel="stylesheet" href = "public/css/dashboard.css" type="text/css">
+    <link rel="stylesheet" href = "public/css/addEquipment.css" type="text/css">
 
 </head>
 <body>
-<?php
-if(!isset($_SESSION['auth']) || !$_SESSION['auth']){
-    $url = "http://$_SERVER[HTTP_HOST]";
-    header("Location: {$url}/logout");
-}
-require_once __DIR__.'/../../src/Repository/EquipmentRepository.php';
-$eq = new EquipmentRepository();
-$equipment = $eq->getEquipment(1);
-echo $equipment->getName()."\r\n";
-foreach ($equipment->getCategory() as $category){
-    echo $category.' ';
-}
-?>
 <div id="container">
     <div id="banner">
         <div id="header">
@@ -43,35 +31,49 @@ foreach ($equipment->getCategory() as $category){
         <img src="public/img/logo.png" alt="logo">
     </div>
     <div id="right">
-        <div id = "searchBar">
-            <div id = "searchImg">
-                <img src="public/img/magnyfing_glass.png">
-            </div>
-            <div id="searchOpt">
-                <form id="search" method="POST" enctype="multipart/form-data" action="">
-                    <input type="text" name="name" placeholder="Nazwa" required>
-                    <input type="number" step = 0.01 name="price" placeholder=0.00 required>
-                    <label> Kategoria
-                        <select>
-                            <?php
-                            require_once __DIR__.'/../../Database.php';
-                            $database = new Database();
-                            $stmt = $database->connect()->prepare('
-                            SELECT nazwa FROM kategorie ORDER BY nazwa;
-                            ');
-                            $stmt->execute();
-                            $result = $stmt->fetchAll(PDO::FETCH_NUM);
-                            foreach ($result as $row) {
-                                echo '<option>' . $row[0] . '</option>';
-                            }
-                            ?>
-                        </select>
-                        <input type="file">
-                    </label>
-                    <input type="submit" value = "Dodaj">
-                </form>
-            </div>
-        </div>
+        <form id="search" method="POST" enctype="multipart/form-data" action="">
+            <input type="text" name="name" class="userInput" placeholder="Nazwa" required>
+            <input type="number" class="userInput" step = 0.01 name="price" placeholder=0.00 required>
+            <label> Kategoria
+                <select name="category" required>
+                    <?php
+                    require_once __DIR__.'/../../Database.php';
+                    $database = new Database();
+                    $stmt = $database->connect()->prepare('
+                        SELECT kategoria_id, nazwa FROM kategorie ORDER BY nazwa;
+                        ');
+                    $stmt->execute();
+                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($result as $row) {
+                        echo '<option value="'.$row['kategoria_id'].'">'.$row['nazwa'].'</option>';
+                    }
+                    ?>
+                </select>
+            </label>
+            <br>
+            <label>Producent
+                <select name="producer" required>
+                    <?php
+                    require_once __DIR__.'/../../Database.php';
+                    $database = new Database();
+                    $stmt = $database->connect()->prepare('
+                        SELECT producent_id, nazwa FROM producenci ORDER BY nazwa;
+                        ');
+                    $stmt->execute();
+                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($result as $row) {
+                        echo '<option value="'.$row['producent_id'].'">'.$row['nazwa'].'</option>';
+                    }
+                    ?>
+                </select>
+            </label>
+            <br>
+            <input type="file" name="photo" class="" required>
+            <br>
+            <input type="checkbox" name="shouldAddExemplary" checked> Dodaj egzemplarz
+            <br>
+            <input type="submit" class="userButton" id="submitButton" value="Dodaj">
+        </form>
     </div>
     <div id="footer">
         <p>Contact details admin@sampleRentCompany.test.local &copy 2023</p>

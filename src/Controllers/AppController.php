@@ -1,6 +1,6 @@
 <?php
-    class AppController{
-        private $request;
+    abstract class AppController{
+        private mixed $request;
         public function __construct(){
             $this->request = $_SERVER['REQUEST_METHOD'];
         }
@@ -10,7 +10,8 @@
         protected function isPost(): bool{
             return $this->request === 'POST';
         }
-        protected function render(string $template = null, array $variables = []){
+        protected function render(string $template = null, array $variables = []): void
+        {
             $templatePath = 'public/views/'.$template.'.php';
             $output = 'File not found';
 
@@ -25,4 +26,3 @@
             print $output;
         }
     }
-?>

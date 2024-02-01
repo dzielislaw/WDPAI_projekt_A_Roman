@@ -17,11 +17,18 @@ session_start();
     Routing::post('register', 'SecurityController');
 
     Routing::get('addEquipment', 'DefaultController');
-    Routing::post('addEquipment', 'EquipmentController');
+    Routing::post('addEquipment', 'SecurityController');
 
     Routing::get('error404', 'DefaultController');
 
     Routing::get('equipments', 'DefaultController');
+    Routing::post('rent', 'RentController');
+
+    Routing::get('checkOut', 'DefaultController');
+    Routing::post('checkOut', 'CheckOutApiController');
+
+    Routing::get('checkIn', 'DefaultController');
+    Routing::post('checkIn', 'CheckInApiController');
 
     Routing::run($path);
 ?>

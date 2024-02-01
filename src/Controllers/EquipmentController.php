@@ -9,7 +9,8 @@ class EquipmentController extends AppController {
 
     private $messages = [];
 
-    public function addEquipment(){
+    public function addEquipment(): void
+    {
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])){
             move_uploaded_file(
                 $_FILES['file']['tmp_name'],

@@ -22,15 +22,29 @@
 
     foreach ($equipmentsRepo as $equipment){
         echo '<div class="equipment">';
+        echo '<form action="/rent" method="POST">';
+        echo '<img src="'.$equipment->getImagePath().'" alt="zdjęcie">';
+        echo '<input type="text" name="productId" value="'.$equipment->getId().'" style="display:none">';
         echo $equipment->getName();
+        echo '<br>';
+        echo 'Marka: '.$equipment->getProducerName().'<br>';
+        foreach ($equipment->getParameters() as $parameter){
+            echo $parameter->getName().': '.$parameter->getValue().' '.$parameter->getUnit(). '<br>';
+        }
         echo '<br>';
         foreach ($equipment->getCategory() as $category){
             echo '#'.$category.' ';
         }
         echo '<br>';
-        echo 'Marka: '.$equipment->getProducerName().'<br>';
         echo $equipment->getPrice();
-        echo 'Zamów';
+        echo '<br>';
+        if($equipment->getAvailability()) {
+            echo '<input type="submit" value="Zamów">';
+        }
+        else{
+            echo 'Obecnie niedostępny';
+        }
+        echo '</form>';
         echo "</div>\r\n";
     }
     ?>

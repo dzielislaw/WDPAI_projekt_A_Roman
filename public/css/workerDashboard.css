@@ -1,0 +1,15 @@
+.workerForm{
+    width: auto;
+    height: auto;
+    display: flex;
+    margin-top: 5vh;
+}
+
+input{
+    margin: auto;
+}
+
+#middle{
+    margin-top: 10vh;
+    height: 50vh;
+}

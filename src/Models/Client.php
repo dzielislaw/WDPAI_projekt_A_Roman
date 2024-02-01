@@ -2,25 +2,38 @@
 
 namespace Models;
 
-class User
+class Client
 {
+    private int $id;
     private string $name;
     private string $surname;
     private string $email;
     private string $hash;
 
     /**
-     * @param String $name
-     * @param String $surname
-     * @param String $email
-     * @param String $hash
+     * @param int $id
+     * @param string $name
+     * @param string $surname
+     * @param string $email
+     * @param string $hash
      */
-    public function __construct(string $name, string $surname, string $email, string $hash)
+    public function __construct(int $id, string $name, string $surname, string $email, string $hash)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->surname = $surname;
         $this->email = $email;
         $this->hash = $hash;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getName(): string
@@ -53,15 +66,14 @@ class User
         $this->email = $email;
     }
 
-    public function gethash(): string
+    public function getHash(): string
     {
         return $this->hash;
     }
 
-    public function setHash(string $passwordHash): void
+    public function setHash(string $hash): void
     {
-        $this->hash = $passwordHash;
+        $this->hash = $hash;
     }
 
 }
-?>

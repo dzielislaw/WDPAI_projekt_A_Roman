@@ -1,21 +1,29 @@
 <?php
 
 use Models\Equipment;
+use Models\Parameter;
 
 require_once 'Repository.php';
 #use Models\Equipment;
 require_once __DIR__.'/../Models/Equipment.php';
+require_once __DIR__ . '/../Models/Parameter.php';
 
 class EquipmentRepository extends Repository{
     public function getEquipment(int $id): Equipment
     {
         $stmt = $this->database->connect()->prepare('
-        SELECT egzemplarze.egzemplarz_id, narzedzia.nazwa AS name, producenci.nazwa AS producer_name,
-               egzemplarze.stan AS state, egzemplarze.uwagi, narzedzia.cena AS price, narzedzia.narzedzie_id
-        FROM egzemplarze
-        INNER JOIN narzedzia ON egzemplarze.narzedzie_id = narzedzia.narzedzie_id
-        INNER JOIN producenci ON narzedzia.producent_id = producenci.producent_id
-        WHERE egzemplarze.egzemplarz_id = :id;
+            SELECT egzemplarze.egzemplarz_id,
+                   narzedzia.nazwa AS name,
+                   producenci.nazwa AS producer_name,
+                   narzedzia.sciezka_zdj AS img_path,
+                   egzemplarze.stan AS state,
+                   egzemplarze.uwagi,
+                   narzedzia.cena AS price,
+                   narzedzia.narzedzie_id
+            FROM egzemplarze
+            INNER JOIN narzedzia ON egzemplarze.narzedzie_id = narzedzia.narzedzie_id
+            INNER JOIN producenci ON narzedzia.producent_id = producenci.producent_id
+            WHERE egzemplarze.egzemplarz_id = :id;
         ');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -37,8 +45,9 @@ class EquipmentRepository extends Repository{
         }
 
         # TODO
-       /* $stmt =$this->database->connect()->prepare('
-        SELECT parametry.nazwa AS parameter,
+        $stmt =$this->database->connect()->prepare('
+        SELECT parametry.parametr_id,
+               parametry.nazwa AS parameter,
                public.narzedzia_parametry.wartosc AS value,
                jednostki.nazwa AS unit
         FROM narzedzia_parametry
@@ -47,17 +56,27 @@ class EquipmentRepository extends Repository{
         WHERE narzedzia_parametry.narzedzie_id = :narzedzie_id
         ORDER BY parametry.nazwa;
         ');
-        $stmt->bindParam(':id', $result['narzedzie_id'], PDO::PARAM_INT);
+        $stmt->bindParam(':narzedzie_id', $result['narzedzie_id'], PDO::PARAM_INT);
         $stmt->execute();
         $query3result = $stmt->fetchAll(PDO::FETCH_NUM);
-        $categories = array();
-        foreach($query2result as $row){
-            $categories[] = $row[0];
-        }*/
+        $parameters = array();
+        foreach($query3result as $row){
+            $parameters[] = new Parameter($row[0], $row[1], $row[2], $row[3]);
+        }
 
+        $stmt=$this->database->connect()->prepare('
+        SELECT wypozyczenie_id
+        FROM wypozyczenia
+        WHERE wypozyczenia.egzemplarz_id = :id
+        AND odebrane IN(0, 1);
+        ');
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $query4result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $avaiability = empty($query4result);
 
         return new Equipment($id, $result['name'], $result['producer_name'], $result['price'],
-            $categories, $result['state']);
+            $categories, $parameters, $result['state'], $result['img_path'], $avaiability);
     }
 
     public function getEquipments() : array
@@ -75,10 +94,11 @@ class EquipmentRepository extends Repository{
     public function getEquipmentsByCategoryID($category_id) : array
     {
         $stmt = $this->database->connect()->prepare('
-        SELECT egzemplarz_id AS id FROM egzemplarze
-INNER JOIN narzedzia ON egzemplarze.narzedzie_id = narzedzia.narzedzie_id
-INNER JOIN kategorie ON narzedzia.narzedzie_id = kategorie.kategoria_id
-WHERE kategorie.kategoria_id = :category_id;
+        SELECT egzemplarz_id AS id
+        FROM egzemplarze
+        INNER JOIN narzedzia ON egzemplarze.narzedzie_id = narzedzia.narzedzie_id
+        INNER JOIN narzedzia_kategorie ON narzedzia.narzedzie_id = narzedzia_kategorie.narzedie_id
+        WHERE narzedzia_kategorie.kategoria_id = :category_id;
         ');
         $stmt->bindParam(':category_id', $category_id, PDO::PARAM_INT);
         $stmt->execute();

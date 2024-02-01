@@ -1,0 +1,21 @@
+#right{
+    height: auto;
+    display: flex;
+}
+
+.userInput {
+    width:20vw;
+    height: 6vh;
+    margin: 2% auto;
+    padding: 1% 0;
+    font-size: 1.3em;
+    text-align: center;
+    border-radius: 1em;
+    display: flex;
+}
+
+#submitButton{
+    width: 20vw;
+    height: 10vh;
+    margin: 1vh auto;
+}

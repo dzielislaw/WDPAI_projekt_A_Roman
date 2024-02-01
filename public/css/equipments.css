@@ -2,4 +2,6 @@
     width: 20vw;
     height: 30vh;
     display: flex;
+    flex-direction: column;
+    margin-right: 10vw;
 }

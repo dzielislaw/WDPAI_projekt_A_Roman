@@ -11,19 +11,6 @@
 
 </head>
 <body>
-    <?php
-        if(!isset($_SESSION['auth']) || !$_SESSION['auth']){
-            $url = "https://$_SERVER[HTTP_HOST]";
-            header("Location: {$url}/logout");
-        }
-    require_once __DIR__.'/../../src/Repository/EquipmentRepository.php';
-        $eq = new EquipmentRepository();
-        $equipment = $eq->getEquipment(1);
-        echo $equipment->getName()."\r\n";
-        foreach ($equipment->getCategory() as $category){
-            echo $category.' ';
-        }
-    ?>
     <div id="container">
         <div id="banner">
             <div id="header">
