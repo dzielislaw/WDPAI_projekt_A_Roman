@@ -18,7 +18,7 @@ Klienci mogą przeglądać ofertę sprzętów w posiadaniu wypozyczlani oraz spr
 
 <b> Rezerwacja zasobów </b> <br>
 Klienci mogą zarezerwować sprzęt online, by uzyskać pewność, że sprzęt będzie dla nih dostępny po zjawieniu się w placówce.
-<br><br>
+<br>
 
 <b> Obsługa wypozyczeń i zwrotów</b> <br>
 Pracownicy odnotowują w aplikacji wydanie zamowionego sprzętu oraz jego zwrot.
@@ -30,8 +30,8 @@ Pracownicy mogą dodawać nowe sprzęty do bazy.
 1. <b>Wymagania</b>: 
 Docker<br>
 2. Należy pobrać repozytorium https://github.com/dzielislaw/WDPAI_projekt_A_Roman.git
-3. W katalogu główny pobranego repozytorium uruchomić polecenia:
-`docker compose build`, a następnie `docker compose up`
+3. W katalogu głównym pobranego repozytorium uruchomić polecenia:
+`docker compose build`,<br>a następnie `docker compose up`
 ## ERD 
 ![Diagram ERD bazy danych](https://github.com/dzielislaw/WDPAI_projekt_A_Roman/blob/main/Diagram%20ERD.png?raw=true)
 
