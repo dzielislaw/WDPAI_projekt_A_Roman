@@ -15,7 +15,7 @@
                 $this->render('dashboard');
             }
             else{
-                $this->render('login.php');
+                $this->render('login');
             }
         }
 

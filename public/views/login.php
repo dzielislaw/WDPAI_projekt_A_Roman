@@ -18,15 +18,6 @@
             <div id="left">
                 <h1>Sprzęt-apka</h1>
                 <div id = "logo">
-<!--                    <div class = "logoElement" style="width: 60.9%; height: 35.3%; left: 7.27%; top: 0; background: #EAEC8A; border-radius: 1px; position: inherit;"></div>-->
-<!--                    <div class = "logoElement" style="width: 10.9%; height: 66.7%; left: 7.27%; top: 33.3%; background: #EAEC8A; border-radius: 1px; position: absolute;"></div>-->
-<!--                    <div class = "logoElement" style="width: 9.1%; height: 66.7%; left: 55.5%; top: 33.3%; background: #EAEC8A; border-radius: 1px; position: absolute;"></div>-->
-<!--                    <div class = "logoElement" style="width: 7.3%; height: 27.5%; left: 69%; top: 4.6%; background: #EAEC8A; border-top-left-radius: 1px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 1px; position: absolute;"></div>-->
-<!--                    <div class = "logoElement" style="width: 24.5%; height: 7.8%; left: 76.2%; top: 13.6%; position: absolute; background: #DEE084; border-radius: 1px"></div>-->
-<!--                    <div class = "logoElement" style="width: 4.5%; height: 5.9%; left: 17.3%; top: 43.1%; position: absolute; background: #EAEC8A; border-radius: 1px"></div>-->
-<!--                    <div class = "logoElement" style="width: 16.4%; height: 35.3%; left: 0; top: 0; position: absolute; background: #EAEC8A; border-radius: 100%"></div>-->
-<!--                    <div class = "logoElement" style="width: 4.5%; height: 7.8%; left: 68.2%; top: 13.7%; position: absolute; background: #EAEC8A"></div>-->
-<!--                    <div class = "logoElement" style="width: 16.36%; height: 3.92%; left: 51.82%; top: 45.18%; position: absolute; background: #EAEC8A; border-radius: 1px"></div>-->
                     <img src="public/img/logo.png" alt="logo">
                 </div>
             </div>
