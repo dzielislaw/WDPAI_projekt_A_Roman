@@ -18,7 +18,7 @@
             <h1>Sprzęt-apka</h1>
         </div>
         <div id="buttonArea">
-            <form class="banner_form">
+            <form class="banner_form" action="/dashboard">
                 <button class="userButton">Moje konto</button>
             </form>
             <form class = "banner_form" action="logout" method="GET">

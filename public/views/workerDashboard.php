@@ -23,10 +23,10 @@ $worker = $workerRepository->getById($workerId);
         <h1>Dzień dobry <?php echo $worker->getName() ?>!</h1>
     </div>
     <div id="buttonArea">
-        <form class="banner_form">
+        <form class="banner_form" action="/dashboard">
             <button class="userButton">Moje konto</button>
         </form>
-        <form class = "banner_form" action="logout" method="GET">
+        <form class = "banner_form" action="/logout" method="GET">
             <button class="userButton">Wyloguj</button>
         </form>
     </div>
@@ -37,6 +37,9 @@ $worker = $workerRepository->getById($workerId);
     </form>
     <form class="workerForm" action="/checkOut">
         <input type = "submit" value="Wydawanie sprzętu">
+    </form>
+    <form class="workerForm" action="/addEquipment">
+        <input type="submit" value="Dodawanie sprzętu">
     </form>
 </div>
 <div id="footer">
