@@ -13,7 +13,6 @@
 </head>
 <body>
 <?php
-
 $workerId = $_SESSION['user_id'];
 $workerRepository = new \Repository\WorkerRepository();
 $worker = $workerRepository->getById($workerId);

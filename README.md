@@ -4,8 +4,9 @@ Aplikacja dla wypożyczalni sprzętu ogrodowego i budowlanego.<br> Posiada dwa s
 ## Spis treści
 
 - [Funkcjonalności](#Funkcjonalności)
+- [Instalacja i uruchomienie](#instalacja-i-uruchomienie)
 - [Schemat ERD bazy danych](#ERD)
-- [Uzyte technologie](#Technologie)
+- [Użyte technologie](#Technologie)
 
 ## Funkcjonalności
 
@@ -25,6 +26,12 @@ Pracownicy odnotowują w aplikacji wydanie zamowionego sprzętu oraz jego zwrot.
 <b>Dodawanie zasobów</b> <br>
 Pracownicy mogą dodawać nowe sprzęty do bazy.
 
+## Instalacja i uruchomienie
+1. <b>Wymagania</b>: 
+Docker<br>
+2. Należy pobrać repozytorium https://github.com/dzielislaw/WDPAI_projekt_A_Roman.git
+3. W katalogu główny pobranego repozytorium uruchomić polecenia:
+`docker compose build`, a następnie `docker compose up`
 ## ERD 
 ![Diagram ERD bazy danych](https://github.com/dzielislaw/WDPAI_projekt_A_Roman/blob/main/Diagram%20ERD.png?raw=true)
 
@@ -32,3 +39,5 @@ Pracownicy mogą dodawać nowe sprzęty do bazy.
 Frontend: HTML5, CSS3, JavaScript <br>
 Backend: PHP 8 <br>
 Baza danych: PostgreeSQL <br>
+Serwer www: nginx <br>
+Konteneryzacja: Docker
